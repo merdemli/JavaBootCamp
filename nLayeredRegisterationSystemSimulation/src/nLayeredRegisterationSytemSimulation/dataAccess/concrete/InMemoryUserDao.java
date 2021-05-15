@@ -81,16 +81,10 @@ public class InMemoryUserDao implements UserDao
 		for(User person:users) 
 		{
 			if(getByMail(person.getEmail())==user) 
-			{
 				System.out.println("Bu eMail adresi baþka bir kullanýcý tarafýndan kullanýlmaktadýr");
 				break; //döngüyü kýrar
-				
-			}
-			else ;
+		} return false;
 		
-		} 
-		return true;
-		 
 	}
 
 }

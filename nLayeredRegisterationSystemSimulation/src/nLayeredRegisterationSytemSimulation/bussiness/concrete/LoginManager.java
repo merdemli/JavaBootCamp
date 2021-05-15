@@ -42,16 +42,18 @@ public class LoginManager implements LoginService
 	}
 
 	@Override
-	public void registerWithGoogle(String gMail, String password) {
+	public void registerWithGoogle(String gMail, String password) 
+	{
 		if(registerService.register(gMail, password)!=null) //user döner
 		{
 			
 			userService.add(registerService.register(gMail, password));
+			
 			this.transferService.sendMail(gMail, gMail);
 			System.out.println(" You have successfully registered to the system with Google Account ");
 		}
-		else System.out.println("There is no such user registered with Google.");
 		
+		else System.out.println("There is no such user registered with Google.");
 	}
 
 	@Override
@@ -64,8 +66,8 @@ public class LoginManager implements LoginService
 					.getByMail(email).getPassword()==password)
 			
 			{
-				
 				System.out.println("Login successful");
+				
 			}else System.out.println("Your mail adress or password is not correct.Please check your informations");
 			
 		}
