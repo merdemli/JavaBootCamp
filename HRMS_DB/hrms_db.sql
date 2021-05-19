@@ -19,7 +19,7 @@ CREATE TABLE public.candidates(
 	first_name CHARACTER VARYING(35) NOT NULL,
 	last_name CHARACTER VARYING(35) NOT NULL,
 	identity_number CHARACTER VARYING(11) NOT NULL,
-	birth_year INT NOT NULL,
+	birth_year DATE NOT NULL,
 	CONSTRAINT pk_candidates PRIMARY KEY(id),
 	CONSTRAINT fk_candidates_users FOREIGN KEY(id) REFERENCES public.users(id),
 	CONSTRAINT uc_candidates_identity_number UNIQUE(identity_number)
