@@ -5,6 +5,8 @@ import javax.persistence.Entity;//jpa alt yapısını kullanır
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -25,8 +27,8 @@ public class Product {
 	@Column(name="product_id")
 	private int id;
 	
-	@Column(name="category_id")
-	private int categoryId;
+//	@Column(name = "category_id")
+//	private int categoryId;
 	
 	@Column(name="product_name")
 	private String productName;
@@ -40,6 +42,17 @@ public class Product {
 	@Column(name="quantity_per_unit")
 	private String quantityPerUnit;
 	
+	//her product bir kategoriye aittir
 	
+	@ManyToOne() //ilişkisi olan tabloyla nasıl bir ilişkisi oldugunu gösterir
+	@JoinColumn(name = "category_id") //bu product'ın kategorisi nedir? Bunu yazdıgımızda categortId yazmamıza gerek kalmaz
+	private Category category;
 
+	
+	
+	
+	
+	
+	
+	
 }

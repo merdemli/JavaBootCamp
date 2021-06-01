@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import io.northwind.business.abstracts.ProductService;
@@ -39,7 +40,35 @@ public class ProductsController  //çoğul isimlendirilir
 	public Result add(@RequestBody Product product) {     
 		return productService.add(product);
 	};
+	
+																																//requestParam
+	@GetMapping("/getByProductName")         //endPoint : istek yapılan yer,bu endPoint'e bir istek yapılır ve productName gösnderilir,yani parametre
+	public DataResult<Product>getByProductName(@RequestParam String productName){            //kullanıcıdan alınan bilgi, yapılan istek
+		return productService.getByProductName(productName);
+		
+		//yapılan istegin parametrelerine bak, orada product name diye bir şey olacak,request param olarak ataması yapaılacak
+	}
 
+	@GetMapping("/getByProductNameAndCategoryId") //url adresi oluşturulur //top 1 yapar,1 ürün döner
+	public DataResult<Product> getByProductNameAndCategoryId(@RequestParam("productName") String productName, @RequestParam ("categoryId")int categoryId){
+		return productService.getByProductNameAndCategoryId(productName, categoryId);
+	}
+	
+	@GetMapping("/getByProductNameContains")
+	public DataResult<List<Product>>getByProductNameContains(@RequestParam String productName){
+		return productService.getByProductNameContains(productName);
+	}
+
+	@GetMapping("/getAllByPage")
+	public DataResult<List<Product>> getAll(int pageNo, int pageSize){
+		return productService.getAll(pageNo, pageSize);
+	}
+	
+	@GetMapping("/getAllAsc")
+	public DataResult<List<Product>> getAllSorted(){
+		return productService.getAllSorted();
+	}
+	
 }
 
 
