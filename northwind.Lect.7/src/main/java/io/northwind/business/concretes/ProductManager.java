@@ -16,10 +16,10 @@ import io.northwind.core.utilities.results.SuccessDataResult;
 import io.northwind.core.utilities.results.SuccessResult;
 import io.northwind.dataAccess.abstracts.ProductDao;
 import io.northwind.entities.concretes.Product;
+import io.northwind.entities.dtos.ProductWithCategoryDto;
 
 
 @Service //bu class servis görevi görecek demektir 
-
 public class ProductManager implements ProductService{
 
 	private ProductDao productDao;
@@ -112,6 +112,13 @@ public class ProductManager implements ProductService{
 		
 		Sort sort = Sort.by(Sort.Direction.ASC, "productName");   //Sort nesnesi oluşturulur//hangi yönde sıralayacagını sööyleriz
 		return new SuccessDataResult<List<Product>>(this.productDao.findAll(sort), "Başarılı");
+	}
+
+
+	@Override
+	public DataResult<List<ProductWithCategoryDto>> getProductWithCategoryDetails() {
+		
+		return new SuccessDataResult<List<ProductWithCategoryDto>>(this.productDao.getProductWithCategoryDetails(),"Data listelendi");
 	}
 
 }//arayüzün bana verdiği parametreleri dao'ya gönderiyorum

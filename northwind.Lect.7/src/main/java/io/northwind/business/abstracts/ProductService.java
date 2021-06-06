@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import io.northwind.core.utilities.results.DataResult;
 import io.northwind.core.utilities.results.Result;
 import io.northwind.entities.concretes.Product;
+import io.northwind.entities.dtos.ProductWithCategoryDto;
 
 public interface ProductService {
 	
@@ -43,6 +44,6 @@ public interface ProductService {
 	            
 	DataResult<List<Product>>getByNameAndCategory(String productName, int categoryId);
 	
-	
+	DataResult<List<ProductWithCategoryDto>>getProductWithCategoryDetails();
 	
 }

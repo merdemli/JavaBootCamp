@@ -14,6 +14,7 @@ import io.northwind.business.abstracts.ProductService;
 import io.northwind.core.utilities.results.DataResult;
 import io.northwind.core.utilities.results.Result;
 import io.northwind.entities.concretes.Product;
+import io.northwind.entities.dtos.ProductWithCategoryDto;
 
 @RestController
 @RequestMapping("/api/products")
@@ -28,6 +29,11 @@ public class ProductsController  //çoğul isimlendirilir
 		this.productService = productService;
 	}
 
+	@GetMapping ("/getproductwithcategorydetails ")   
+	public DataResult<List<ProductWithCategoryDto>> getProductWithCategoryDetails()
+	{
+		return this.productService.getProductWithCategoryDetails();  
+	}
 
 	@GetMapping ("/getall")             //kodlama.io/api/products/getAll diye bir istekte bulunursak, bu çalışır.
 	public DataResult<List<Product>> getAll() 
