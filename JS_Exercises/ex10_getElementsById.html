@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        .intro1{ background-color: red;}
+        .intro2 {background-color: violet;}
+        .intro2 {background-color: blue;}
+    </style>
+</head>
+
+<body>
+
+    <p class="intro1" id="intro1">My first paragraph...</p>
+    <p class="intro2" id="intro2">My second paragraph...</p>
+    <p class="intro3" id="intro3">My third paragraph...</p>
+
+    <ul>
+        <li>List item 1</li>
+        <li>List item 2</li>
+        <li>List item 3</li>
+        <li>List item 4</li>
+        <li>List item 5</li>
+    </ul>
+
+    <p id="message"></p>
+    <input name = "customerName" type="text" value= "Merve Erdemli">
+
+    <h1>Try it</h1>
+    <h1 id="tryIt">Try it</h1>
+
+    <p id="nodes">Node value</p>
+
+    <div id="div1">
+        <p id="p1">This is p1</p>
+        <p id="p1">This is p2</p>
+    </div>
+
+    <script type="text/javascript">
+
+        alert("Reading with getlementById");
+        var firstParagraph =document.getElementById("intro1");
+        var message = document.getElementById("message");
+        message.innerHTML = "Message : " +firstParagraph.innerHTML;
+    
+    </script>
+
+    
+</body>
+</html>

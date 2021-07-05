@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Enter a number</p>
+    <input id="numberBox" type="number" min="10" max="100" >
+    <!--<input id= "numberBox" type="text" pattern="[A-Za-z]{3}">-->
+    <input id="numberBox" type="text" value="abc" readonly>
+
+    <button onclick="validate()">Send</button>
+    <p id="demo"></p>
+
+    <script>
+        function validate()
+        {
+            var numberEntered = document.getElementById("numberBox");
+            if(numberEntered.checkValidity()==false)
+            {
+                document.getElementById("demo").innerHTML = numberEntered.validationMassage;
+
+            }
+            else
+            {
+                document.getElementById("demo").innerHTML = "Input OK";
+
+            }
+
+        }
+    </script>
+    
+</body>
+</html>

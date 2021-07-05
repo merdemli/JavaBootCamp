@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        .intro1{ background-color: red;}
+        .intro2 {background-color: violet;}
+        .intro3 {background-color: blue;}
+    </style>
+</head>
+
+<body>
+
+    <p class="intro1" id="intro1">My first paragraph...</p>
+    <p class="intro2" id="intro2">My second paragraph...</p>
+    <p class="intro3" id="intro3">My third paragraph...</p>
+ 
+    <ul>
+        <li>List item 1</li>
+        <li>List item 2</li>
+        <li>List item 3</li>
+        <li>List item 4</li>
+        <li>List item 5</li>
+    </ul>
+
+    <p id="message"></p>
+    <input name = "customerName" type="text" value= "Merve Erdemli">
+
+    <h1>Try it</h1>
+    <h1 id="tryIt">Try it</h1>
+
+    <p id="nodes">Node value</p>
+
+    <div id="div1">
+        <p id="p1">This is p1</p>
+
+        <p id="p2">This is p2</p>
+    </div>
+
+    <script type="text/javascript">
+
+
+        // var allUnorderedLists = document.getElementsByTagName("ul");
+        // var unorderedList = allUnorderedLists[0];
+
+        // var allListItems = unorderedList.getElementsByTagName("li");
+
+        // for( var i=0; i<allListItems.length; i++){
+        //     alert(allListItems[i].firstChild.data);}
+
+        //
+        // var allItemsWithClassName = document.getElementsByClassName("intro1");
+        // alert(allItemsWithClassName[0].innerHTML);
+
+        // var allItemsWithSelector = document.querySelectorAll("p.intro2");
+        // alert(allItemsWithSelector[0].innerHTML);
+
+        //
+        // document.getElementById("tryIt").addEventListener("click", changeColor);
+        // function changeColor(){
+        //     document.getElementById("intro1").style.backgroundColor = "blue";
+        // }
+
+            //
+
+        var heading = document.createElement("h2");
+        var node = document.createTextNode("Hello Javascript");
+        heading.appendChild(node);
+
+        var div1 = document.getElementById("div1");
+        var p2 = document.getElementById("p2");
+        div1.insertBefore(heading,p2);                //div1'e oluşturulan heading insert edildi.Nereye?  p2'den önce
+
+        alert("Removing p2");
+        div1.removeChild(p2);
+
+        alert("Replacing");
+        var heading2 = document.createElement("h1");
+        var node2 = document.createTextNode("This is a replacement");  //yeni node oluşturuldu
+        heading2.appendChild(node2);                                   //node2 h1'e eklendi
+
+        var p1 = document.getElementById("p1"); //p1'in yerine heading2 yerleştirildi
+        div1.replaceChild(heading2,p1);
+
+    
+    </script>
+
+    
+</body>
+</html>
