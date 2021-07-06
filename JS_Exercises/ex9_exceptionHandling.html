@@ -20,7 +20,7 @@
             var message, x;
             message= document.getElementById("message");
             message.innerHTML="";
-            x=document.getElementById("demo").value;
+            x=document.getElementById("demo").value;  //kullanıcının girdiği değeri x'e atıyoruz
             try{
                 if(x=="") throw "is empty";
                 if(isNaN(x)) throw "is not a number";   //is not a number
@@ -28,11 +28,12 @@
                 if(x < 5) throw "is too low";
             }
             catch(err) {
-                message.innerHTML =  "Input " +err;
+                message.innerHTML =  "Input " +err; //yukarda yakalanan hatayı mesagge'a yazdırıyoruz
             }
 
             finally{
-                document.getElementById("demo").value = "";
+                document.getElementById("demo").value = ""; //test input dediğimizde, girilen inputu temizler
+                                                            //try catch'den bağımsız olarak
             }
         }
     </script>
