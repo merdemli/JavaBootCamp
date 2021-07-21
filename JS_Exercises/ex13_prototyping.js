@@ -6,7 +6,7 @@ function Customer(first, last, city, country,age){
     this.country=country;
 }
 
-var Customer1  = new Customer("merve","erdemli","istanbul","turkey","18")
+var someCustomer  = new Customer("merve","erdemli","istanbul","turkey","18")
 
 Customer.prototype.eMail = "merveerdemli6@gmail.com";
 Customer.prototype.fullName = function(){          //heryerde kullanmak istemediğimiz özellikler için prototype deseninden
